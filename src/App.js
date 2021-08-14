@@ -14,6 +14,11 @@ function App() {
   useEffect(() => {
     const getData = () => {
       const storageData = localStorage.getItem('FinancasStorageData')
+
+      if (!storageData) {
+        return localStorage.setItem('FinancasStorageData', '[]')
+      }
+
       const newStorageData = JSON.parse(storageData)
 
       setData(newStorageData)
@@ -31,8 +36,8 @@ function App() {
       <Header toggleFormView={toggleFormView} formView={formView} />
       <Form formView={formView} data={data} setData={setData} />
       <Main>
-        {data && data.map((each) => (
-          <Card key={each.id} cardInfo={each} data={data} setData={setData} />
+        {data && data.map((each, key) => (
+          <Card key={key} cardInfo={each} data={data} setData={setData} />
         ))}
         {data.length === 0 &&
           <NoCards />

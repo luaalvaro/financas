@@ -14,10 +14,7 @@ export default function Form({ formView, data, setData }) {
             return
         }
 
-        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-        setData([...data, {
-            id: random(1, 10000),
+        setData([{
             name: name,
             value: value,
             paid: paid
