@@ -14,7 +14,10 @@ export default function Form({ formView, data, setData }) {
             return
         }
 
-        setData([{
+        const id = Math.floor(Math.random() * 10000)
+
+        setData([...data, {
+            id: id,
             name: name,
             value: value,
             paid: paid
