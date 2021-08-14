@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    padding: 10px 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header-logo {
+    font-weight: 400;
+    font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.header-button {
+    border: none;
+    padding: 7px 20px;
+    font-weight: 600;
+    background: steelblue;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-button:hover {
+    background: rgb(60, 110, 151);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    margin: 10px 25px;
+    border: 1px solid gray;
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-control .fc-input {
+    height: 30px;
+}
+
+.form-control-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-control-row .fc-input {
+    margin-left: 100px;
+}
+
+.fc-label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-submit {
+    height: 40px;
+    border: none;
+    background: steelblue;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.form-submit:hover {
+    background: rgb(60, 110, 151);
+}
+
+.main {
+    padding: 10px 25px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    background: #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #343434;
+    padding: 5px;
+
+    box-shadow: 2px 3px 7px rgba(0,0,0,0.2);
+}
+
+.close-button {
+    margin-right: 5px;
+    cursor: pointer;
+    color: rgb(201, 48, 48);
+}
+
+.paid {
+    text-decoration: 3px line-through rgb(167, 47, 47);
 }
