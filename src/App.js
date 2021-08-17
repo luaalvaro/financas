@@ -10,6 +10,7 @@ function App() {
   const toggleFormView = () => setFormView(!formView)
 
   const [data, setData] = useState([])
+  const [valueToPay, setValueToPay] = useState(0)
 
   useEffect(() => {
     const getData = () => {
@@ -28,6 +29,10 @@ function App() {
   }, [])
 
   useEffect(() => {
+    let response = data.reduce((acc, cur) => cur.paid ? acc : acc + cur.value, 0)
+
+    setValueToPay(response)
+
     localStorage.setItem('FinancasStorageData', JSON.stringify(data))
   }, [data])
 
@@ -36,6 +41,11 @@ function App() {
       <Header toggleFormView={toggleFormView} formView={formView} />
       <Form formView={formView} data={data} setData={setData} />
       <Main>
+
+        <p
+          style={{ margin: '0 0 15px 0', fontWeight: 600, display: valueToPay === 0 ? 'none' : 'inline-block' }}
+        >A pagar: R$ {valueToPay}</p>
+
         {data && data.map((each, key) => (
           <Card key={key} cardInfo={each} data={data} setData={setData} />
         ))}

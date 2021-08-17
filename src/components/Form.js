@@ -3,7 +3,7 @@ import { useState } from 'react'
 export default function Form({ formView, data, setData }) {
 
     const [name, setName] = useState('')
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(0)
     const [paid, setPaid] = useState(false)
 
     const handleSubmit = (e) => {
@@ -19,12 +19,12 @@ export default function Form({ formView, data, setData }) {
         setData([...data, {
             id: id,
             name: name,
-            value: value,
+            value: Number(value),
             paid: paid
         }])
 
         setName('')
-        setValue('')
+        setValue(0)
         setPaid(false)
     }
 
