@@ -4,12 +4,13 @@ export default function Form({ formView, data, setData }) {
 
     const [name, setName] = useState('')
     const [value, setValue] = useState(0)
+    const [paymentDate, setPaymentDate] = useState('')
     const [paid, setPaid] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!name || !value) {
+        if (name === "" || !value || paymentDate === "") {
             alert('Por favor, preencha as informações da conta!')
             return
         }
@@ -20,11 +21,13 @@ export default function Form({ formView, data, setData }) {
             id: id,
             name: name,
             value: Number(value),
-            paid: paid
+            paid: paid,
+            paymentDate: paymentDate
         }])
 
         setName('')
         setValue(0)
+        setPaymentDate('')
         setPaid(false)
     }
 
@@ -42,6 +45,11 @@ export default function Form({ formView, data, setData }) {
                     <div className="form-control">
                         <label className="fc-label" htmlFor="">Valor da conta</label>
                         <input className="fc-input" type="text" value={value} onChange={(event) => { setValue(event.target.value) }} />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="fc-label" htmlFor="">Data de pagamento</label>
+                        <input className="fc-input" type="date" value={paymentDate} onChange={(event) => { setPaymentDate(event.target.value) }} />
                     </div>
 
                     <div className="form-control-row">

@@ -21,13 +21,24 @@ export default function Card({ cardInfo, data, setData }) {
         setData(newData)
     }
 
+    const handleFormatDate = (strDate) => {
+        let newDate = strDate.split('-')
+        return `${newDate[2]}/${newDate[1]}/${newDate[0]}`
+    }
+
     return (
-        <div onDoubleClick={handle_card_dclick} className={cardInfo.paid ? "card paid" : "card"}>
+        <div
+            onDoubleClick={handle_card_dclick}
+            className={cardInfo.paid ? "card paid" : "card"}
+        >
             <div>
                 <h2>{cardInfo.name}</h2>
-                <p>R$ {cardInfo.value}</p>
+                <p>R$ {cardInfo.value} - {handleFormatDate(cardInfo.paymentDate)}</p>
+                <p></p>
             </div>
+
             <FaTimes className="close-button" onClick={handle_card_delete} />
+
         </div>
     )
 }
