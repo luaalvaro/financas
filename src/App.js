@@ -36,8 +36,6 @@ function App() {
     localStorage.setItem('FinancasStorageData', JSON.stringify(data))
   }, [data])
 
-  console.log(data)
-
   data.sort((a, b) => {
     return new Date(a.paymentDate) - new Date(b.paymentDate)
   })
